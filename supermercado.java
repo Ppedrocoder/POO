@@ -1,17 +1,32 @@
+import java.util.*;
 public class supermercado {
-    private String[] pedido;
-    private String item;
-    public supermercado(String pedido){
-        this.pedido=pedido;
+    private list<String> products=new ArrayList<>();
+    public void setProduct(String product){
+        products.add(produto);
     }
-    public String isItem(int i){
-        this.item=pedido[i];
-        return pedido[i];
-    }
-    public double preço(){
+}
+
+private class Produto{
+    private String name;
+    private double price;
+    private int qty; 
+}
+private class Itempedido{
+    private int qtd;
+    public class double subtotal(){
 
     }
-    public int estoque(){
+}
+public class Pedido(){
+    private Date date;
+    private String payment_form
+    public double total(){
 
     }
+    public String realized_payment(){
+
+    }
+}
+private class Cliente{
+    private String name;
 }
