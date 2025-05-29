@@ -24,6 +24,9 @@ public class Racional{
         return new Racional(num_final,den_final);
     }
     public Racional vezes(int numero){
+        if (numero==1){
+            return this;
+        }
         int num_final=this.num*numero;
         int den_final=this.den*1;
         return new Racional(num_final,den_final);
