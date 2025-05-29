@@ -28,13 +28,24 @@ public class Racional{
         int den_final=this.den*1;
         return new Racional(num_final,den_final);
     }
+    public Racional divisao(Racional numero){
+        int den= this.den*numero.num;
+        int num= this.num*numero.den;
+        return new Racional(num,den);
+    }
+    private static int mmc(int den1, int den2){
+        return 1;
+    }
     public Racional soma(Racional numero){
-        int den_final=numero.den;
-        if (numero.den!=this.den) {
-            den_final=this.den*numero.den;
-        }
+        int den_final=mmc(this.den, numero.den);
         int num_final=((den_final/this.den)*this.num)+((den_final/numero.den)*numero.num);
         return new Racional(num_final,den_final);
+    }
+    public double toDouble(){
+        return (double)this.num/this.den;
+    }
+    public boolean equals(Racional numero){
+        return this.num==numero.num && this.den==numero.den;
     }
     public String toString(){
         return num+"/"+den;
