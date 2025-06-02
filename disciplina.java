@@ -49,7 +49,15 @@ public class disciplina{
         if (mediaParcial()>=60) {
             return mediaParcial();
         }
-        int media= (mediaParcial()+this.pf)/2;
-        return media;
+        int media1= (mediaParcial()+this.pf)/2;
+        int media2=media(this.pf, this.n2);
+        int media3=media(this.n1,this.pf);
+        if (media1>media2 | media1>media3) {
+            return media1;
+        }
+        if (media2>media1 | media2>media3) {
+            return media2;
+        }
+        return media3;
     }
 }
