@@ -1,11 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class termo{
     private char[] termo;
     private String[] palavras={conhecimento, ensino, faculdade, cinema, escola, aluno, discernimento, longitude, ensinamento, pessoa, viagem, passeio, hotel, parque};
-    private int maxTentativas=7;
     private int tentativas;
     private boolean finalizado=false;
     private list<Character> tentativa_feita= new ArrayList<>();
@@ -23,23 +23,24 @@ public class termo{
              
              Scanner sc=new Scanner(System.in);
              String tentativa=sc.nextLine();
+             char[] termo_clone=Arrays.copyOf(termo, termo.length);
              char[] tentativa_array=this.tentativa.toLowerCase().toCharArray();
              for (Char caractere : tentativa_array) {
                 tentativa_feita.add(caractere);
              }
              for (int i=0; i<tentativa_array.length;i++) {
                 for (int j=0; j<termo.length;j++) {
-                    if (i==j | termo[i]==tentativa_feita[j]) {
+                    if (i==j | tentativa_feita[i]==termo_clone[j]) {
                         resposta.add("Verde");
-                        tentativa_feita[j]="";
+                        termo_clone[j]="";
                     }
-                    else if(termo[i]==tentativa_feita[j]) {
+                    else if(tentativa_feita[i]==termo_clone[j]) {
                         resposta.add("Amarelo");
-                        tentativa_feita[j]="";
+                        termo_clone[j]="";
                     }
                     else{
                         resposta.add("Preto");
-                        tentativa_feita[j]="";
+                        termo_clone[j]="";
                     }
                 }
              }
@@ -61,10 +62,10 @@ public class termo{
              resposta.clear();
              tentativas++;
         }
-        if (tentativas>7 | finalizado==false) {
+        if (finalizado==false) {
             return "Você Perdeu";
         }
-        if (tentativas>7 | finalizado==true) {
+        if (finalizado==true) {
             return "Você Ganhou";
         }
 
