@@ -6,4 +6,5 @@ public class teste{
         System.out.println(a);
         System.out.println(c.getNum()+"/"+c.getDen());
     }
+    
 }
